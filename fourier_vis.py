@@ -20,7 +20,7 @@ font_style = pygame.font.SysFont('applegothic', 20)
 cx = 300
 cy = height/2
 angle = 0
-delta_a = 0.005
+delta_a = 0.008
 x_wave = [cx+400]
 y_wave = []
 y_square_wave = []
@@ -117,7 +117,7 @@ while not close:
     temp.append(np.sqrt((np.sum(pow(np.array(y_wave[0:num_elements])-np.array(y_opt[0:num_elements]),2)))/len(y_wave)))
     rmse = np.mean(temp)
     #Preventing wave array from getting too large if you run the program for a long time
-    if len(temp) > 20:
+    if len(temp) > 100:
         temp.pop()
     # Displaying RMSE to screen
     message("RMSE of first 100 elements = %.2f" %rmse,width/2,height*0.1)
